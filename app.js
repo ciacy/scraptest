@@ -19,8 +19,8 @@ db.on('error', err => {
 db.once('connected', () => {
   console.log(`connected to ${DBURL}`);
   console.log('about to spawn casperjs process');
-
-  scraper('casperjs', args, {maxBuffer: 1024 * 1024 * 100}, (err, stdout, stderr) => {
+  //use 50MB for the casperjs process
+  scraper('casperjs', args, {maxBuffer: 1024 * 1024 * 50}, (err, stdout, stderr) => {
     if(err) {
       console.error('There was an error spawning casperjs process');
       console.error(err);
@@ -31,6 +31,7 @@ db.once('connected', () => {
       return sendEmail(stderr);
     }
     console.log('casperjs process successfully ended...');
+    //convert stringified output array into a javascript array
     const dataFile = JSON.parse(stdout);
     console.log('sending data for saving');
     return saveData(dataFile);

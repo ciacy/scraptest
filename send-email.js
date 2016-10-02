@@ -22,7 +22,7 @@ module.exports = function (err) {
     msg = {
       to: email,
       from: sender,
-      subject: 'There was an error running the web scarper',
+      subject: 'There was an error running the web scraper',
       text: err
     };
   } else {

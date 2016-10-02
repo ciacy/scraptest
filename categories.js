@@ -19,7 +19,6 @@ var XPATH = {
 	'none': 'none', // [bug] see https://github.com/casperjs/casperjs/issues/1692
 };
 
-
 /*var casper = require('casper').create({
 	logLevel: 'debug',
 	verbose: true,
@@ -40,6 +39,8 @@ var XPATH = {
 	},
 
 });*/
+
+//The following makes output less verbose so that only the data is passed to stdout
 
 var casper = require('casper').create({
 // the most popular screen size
@@ -123,7 +124,6 @@ function scrape(url) {
 			data,
 			this.evaluate(parseCategories, XPATH)
 		);
-		//data += this.evaluate(parseCategories, XPATH);
 
 	});
 
@@ -132,7 +132,6 @@ function scrape(url) {
 
 // the data container
 var data = [];
-//var data = '';
 
 
 // start the driver

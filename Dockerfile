@@ -14,6 +14,8 @@ MAINTAINER muyiwa@akinogundeji.com
 COPY . /home/node_app
 # define directory to run app from
 WORKDIR /home/node_app
+# npm install
+RUN npm install
 # expose port and map it to host
 EXPOSE 3030
 # create new user
